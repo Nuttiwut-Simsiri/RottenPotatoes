@@ -1,0 +1,16 @@
+<h2>Create New Movie</h2>
+<br><br>
+<%= form_tag movies_path do %>
+  <%= label :movie, :title, 'Title' %>
+  <%= text_field :movie, 'title' ,required: true%>
+  <%= label :movie, :image, 'Image' %>
+  <%= text_field :movie, 'image',required: true %>
+  <%= label :movie, :release_year, 'Release_Year' %>
+  <%= select :movie,:release_year, (Time.zone.now.year - 86)..(Time.zone.now.year) %>
+  <%= label :movie, :rating, 'Rating' %>
+  <%= select :movie, :rating, ['G','PG','PG-13','R','NC-17'] %>
+  <%= label :movie, :description, 'Description' %>
+  <%= text_field :movie, 'description' %><br><br>
+  <%= link_to "Cancel",movies_path(@movies) %> &nbsp&nbsp&nbsp <%= submit_tag 'Save Changes' %>
+<% end %>
+

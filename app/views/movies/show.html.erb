@@ -1,0 +1,35 @@
+<br><br>
+<div class="w3-section w3-container w3-center">
+    <div class="w3-card-4">
+      <div class="w3-display-container">
+		<div class="w3-container w3-light-grey">
+			<p> <%= link_to "Back" , movies_path %> </p>
+			
+			<br>
+		</div>
+	
+        <%= image_tag @movie.image %>  
+        <div class="w3-display-bottomleft w3-container w3-xlarge w3-text-black"></div>
+      </div>
+      <div class="w3-container w3-light-grey">
+	<h3><%= @movie.title%></h3>
+	<p> Rating : <%= @movie.rating%></p>
+        <p> Year : <%= @movie.release_year%></p>
+        <p> Description : <br>&nbsp&nbsp&nbsp<%= @movie.description%>></p>
+	
+	
+	
+      </div>
+	<div class="w3-container w3-light-grey">
+	<% if  current_user && current_user.admin?  %> 
+  <p> 
+    <%= link_to "Edit Movie", edit_movie_path(@movie) %> 
+  </p> 
+<% end %>
+<% if current_user && current_user.admin?  %> 
+    <p> <%= link_to 'Delete', movie_path(@movie), :method => :delete %></p>
+<% end %>
+	
+	</div>
+    </div>
+  </div>

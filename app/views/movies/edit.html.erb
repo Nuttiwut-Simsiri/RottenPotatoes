@@ -1,0 +1,19 @@
+<h2>Edit Movie</h2>
+<br><br>
+<%= form_tag movie_path(@movie), :method => :put do %>
+  <%= label :movie, :title, 'Title' %>
+  <%= text_field :movie, 'title' %>
+  <%= label :movie, :image, 'Image SRC' %>
+  <%= text_field :movie, 'image' %>
+  <%= label :movie, :release_year, 'Release_year' %>
+  <%= select :movie,:release_year, (Time.zone.now.year - 86)..(Time.zone.now.year) %>
+  <%= label :movie, :rating, 'Rating' %>
+  <%= select :movie, :rating, ['G','PG','PG-13','R','NC-17'] %>
+  <%= label :movie, :description, 'Description' %>
+  <%= text_field :movie, 'description' %>
+  <br><br>
+  <%= link_to "Cancel", movie_path(@movie) %> &nbsp&nbsp&nbsp <%= submit_tag 'Save Changes' %>  
+<% end %>
+
+  
+ 

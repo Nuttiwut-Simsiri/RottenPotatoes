@@ -1,0 +1,36 @@
+<% if current_user && current_user.admin?  %> 
+  <p> <%= link_to "Add new Movies", new_movie_path(@movie)%> </p>
+<% end %>
+
+<div class="main">
+ 	<div class="container">
+  		<h2>&nbspAll Movies</h2>
+  	   	<table>
+			<tr>
+				<th> No. </th>
+				<th>Image</th>
+				<th><%= sortable "title" %></th>
+				<th><%= sortable "rating" %></th>
+				<th><%= sortable "release_year"%></th>
+				<th>Description </th>
+				<th>Info </th>
+			</tr>
+			
+     				<% @movies.each_with_index do |t,index| %>
+				<tr>
+					<td> <%= index+1 %> </td>
+        				<td> <%= image_tag t.image %></td>
+        				<td> <%= t.title %></td>
+					<td> <%= t.rating%></td>
+        				<td> <%= t.release_year%></td>
+        				<td> <%= t.description%></td>
+        				<td> <%= link_to "See More", movie_path(t) %><td>
+				</tr>
+      				<% end %>
+			
+   		</table>
+  	</div>
+</div>
+
+
+
